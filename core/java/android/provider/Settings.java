@@ -3174,7 +3174,7 @@ public final class Settings {
          * @hide
          */
         public static final String SYNCHRONIZE_ENCRYPTION_PASSWORD =
-            "syncronize_encryption_password";
+            "synchronize_encryption_password";
 
         /**
          * The saved value for WindowManagerService.setForcedDisplaySize().
