@@ -3170,6 +3170,13 @@ public final class Settings {
             "lock_screen_owner_info_enabled";
 
         /**
+         * This preference enables synchronizing the lock password with the encryption password.
+         * @hide
+         */
+        public static final String SYNCHRONIZE_ENCRYPTION_PASSWORD =
+            "syncronize_encryption_password";
+
+        /**
          * The saved value for WindowManagerService.setForcedDisplaySize().
          * Two integers separated by a comma.  If unset, then use the real display size.
          * @hide
