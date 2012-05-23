@@ -119,6 +119,8 @@ public class LockPatternUtils {
             = "lockscreen.biometricweakeverchosen";
     public final static String LOCKSCREEN_POWER_BUTTON_INSTANTLY_LOCKS
             = "lockscreen.power_button_instantly_locks";
+    public final static String SYNCHRONIZE_ENCRYPTION_PASSWORD
+            = "lockscreen.power_button_instantly_locks";
 
     private final static String PASSWORD_HISTORY_KEY = "lockscreen.passwordhistory";
 
@@ -595,7 +597,9 @@ public class LockPatternUtils {
             KeyStore keyStore = KeyStore.getInstance();
             if (password != null) {
                 // Update the encryption password.
-                updateEncryptionPassword(password);
+                if (isEncryptionPasswordSynchronized()) {
+                    updateEncryptionPassword(password);
+                }
 
                 // Update the keystore password
                 keyStore.password(password);
@@ -976,6 +980,13 @@ public class LockPatternUtils {
     public boolean isEmergencyCallEnabledWhileSimLocked() {
         return mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_enable_emergency_call_while_sim_locked);
+    }
+
+    /**
+     * @return Whether the encryption password is synchronized with the lockscreen
+     */
+    public boolean isEncryptionPasswordSynchronized() {
+        return getBoolean(Settings.Secure.SYNCHRONIZE_ENCRYPTION_PASSWORD, true);
     }
 
     /**
