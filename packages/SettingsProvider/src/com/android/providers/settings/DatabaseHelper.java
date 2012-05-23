@@ -1559,6 +1559,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             loadBooleanSetting(stmt, Settings.Secure.ACCESSIBILITY_SPEAK_PASSWORD,
                     R.bool.def_accessibility_speak_password);
+
+            loadBooleanSetting(stmt, Settings.Secure.SYNCHRONIZE_ENCRYPTION_PASSWORD,
+                    R.bool.def_synchronize_encryption_password);
         } finally {
             if (stmt != null) stmt.close();
         }
